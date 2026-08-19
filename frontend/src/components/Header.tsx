@@ -50,24 +50,24 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* Navigation Tabs */}
-        <nav className="hidden md:flex items-center gap-2 bg-slate-900/60 p-1.5 rounded-2xl border border-white/5">
+        <nav className="hidden md:flex items-center gap-1 bg-slate-900/90 p-1.5 rounded-2xl border border-white/10 shadow-inner">
           <button
             onClick={() => setActiveTab('jobs')}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-sm transition-all ${
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-xs transition-all ${
               activeTab === 'jobs'
-                ? 'bg-gradient-to-r from-cyan-500 to-indigo-600 text-white shadow-md shadow-cyan-500/20'
+                ? 'bg-indigo-600/30 text-cyan-300 border border-cyan-500/40 shadow-sm'
                 : 'text-slate-400 hover:text-white hover:bg-white/5'
             }`}
           >
-            <Briefcase className="w-4 h-4" />
+            <Briefcase className="w-4 h-4 text-cyan-400" />
             Explore Jobs
           </button>
 
           <button
             onClick={() => setActiveTab('match')}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-sm transition-all ${
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-xs transition-all ${
               activeTab === 'match'
-                ? 'bg-gradient-to-r from-cyan-500 to-indigo-600 text-white shadow-md shadow-cyan-500/20'
+                ? 'bg-indigo-600/30 text-amber-300 border border-amber-500/40 shadow-sm'
                 : 'text-slate-400 hover:text-white hover:bg-white/5'
             }`}
           >
@@ -77,9 +77,9 @@ export const Header: React.FC<HeaderProps> = ({
 
           <button
             onClick={() => setActiveTab('saved')}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-sm transition-all ${
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-xs transition-all ${
               activeTab === 'saved'
-                ? 'bg-gradient-to-r from-cyan-500 to-indigo-600 text-white shadow-md shadow-cyan-500/20'
+                ? 'bg-indigo-600/30 text-purple-300 border border-purple-500/40 shadow-sm'
                 : 'text-slate-400 hover:text-white hover:bg-white/5'
             }`}
           >
@@ -89,9 +89,9 @@ export const Header: React.FC<HeaderProps> = ({
 
           <button
             onClick={() => setActiveTab('alerts')}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-sm transition-all ${
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-xs transition-all ${
               activeTab === 'alerts'
-                ? 'bg-gradient-to-r from-cyan-500 to-indigo-600 text-white shadow-md shadow-cyan-500/20'
+                ? 'bg-indigo-600/30 text-emerald-300 border border-emerald-500/40 shadow-sm'
                 : 'text-slate-400 hover:text-white hover:bg-white/5'
             }`}
           >
@@ -102,9 +102,9 @@ export const Header: React.FC<HeaderProps> = ({
           {currentUser?.role === 'admin' && (
             <button
               onClick={() => setActiveTab('admin')}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium text-sm transition-all ${
+              className={`flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-xs transition-all ${
                 activeTab === 'admin'
-                  ? 'bg-gradient-to-r from-rose-500 to-amber-600 text-white shadow-md shadow-rose-500/20'
+                  ? 'bg-rose-500/20 text-rose-300 border border-rose-500/40 shadow-sm'
                   : 'text-rose-400 hover:text-rose-300 hover:bg-rose-500/10'
               }`}
             >

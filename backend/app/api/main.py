@@ -17,10 +17,20 @@ from app.api.routes.matching import router as matching_router
 from app.core.logging_config import logger
 
 
+from fastapi.middleware.cors import CORSMiddleware
+
 app = FastAPI(
     title="Job Required API",
     version="1.0.0",
     description="Job ingestion and search API",
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 

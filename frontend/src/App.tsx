@@ -51,7 +51,7 @@ export function App() {
 
   // Filters state
   const [searchQuery, setSearchQuery] = useState('');
-  const [useFTS, setUseFTS] = useState(true);
+  const [useFTS, setUseFTS] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedLocations, setSelectedLocations] = useState<string[]>([]);
   const [selectedSeniority, setSelectedSeniority] = useState<string[]>([]);
