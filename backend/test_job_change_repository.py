@@ -81,15 +81,18 @@ def create_test_job():
     )
 
 
-session = SessionLocal()
+if __name__ == "__main__":
+    session = SessionLocal()
+    try:
+        from app.database.job_model import JobModel
+        session.query(JobModel).filter(JobModel.source == "change-repository-test").delete()
+        session.commit()
 
-try:
+        job_repository = JobRepository(
+            session
+        )
 
-    job_repository = JobRepository(
-        session
-    )
-
-    change_repository = (
+        change_repository = (
         JobChangeRepository(
             session
         )

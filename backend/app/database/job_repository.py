@@ -312,101 +312,45 @@ class JobRepository:
         # =====================================
 
         if location:
-
             location_conditions = []
-
             for value in location:
-
                 value = value.strip()
-
                 if value:
-
                     location_conditions.append(
-                        cast(
-                            JobModel.location_restrictions,
-                            String,
-                        ).like(
-                            f'%"{value}"%'
-                        )
+                        func.lower(cast(JobModel.location_restrictions, String)).like(f"%{value.lower()}%")
                     )
-
             if location_conditions:
-
-                statement = statement.where(
-                    or_(
-                        *location_conditions
-                    )
-                )
+                statement = statement.where(or_(*location_conditions))
 
         # =====================================
         # SENIORITY
-        #
-        # JSON ARRAY
-        #
-        # Multiple values = OR
         # =====================================
 
         if seniority:
-
             seniority_conditions = []
-
             for value in seniority:
-
                 value = value.strip()
-
                 if value:
-
                     seniority_conditions.append(
-                        cast(
-                            JobModel.seniority,
-                            String,
-                        ).like(
-                            f'%"{value}"%'
-                        )
+                        func.lower(cast(JobModel.seniority, String)).like(f"%{value.lower()}%")
                     )
-
             if seniority_conditions:
-
-                statement = statement.where(
-                    or_(
-                        *seniority_conditions
-                    )
-                )
+                statement = statement.where(or_(*seniority_conditions))
 
         # =====================================
         # CATEGORY
-        #
-        # JSON ARRAY
-        #
-        # Multiple values = OR
         # =====================================
 
         if category:
-
             category_conditions = []
-
             for value in category:
-
                 value = value.strip()
-
                 if value:
-
                     category_conditions.append(
-                        cast(
-                            JobModel.categories,
-                            String,
-                        ).like(
-                            f'%"{value}"%'
-                        )
+                        func.lower(cast(JobModel.categories, String)).like(f"%{value.lower()}%")
                     )
-
             if category_conditions:
-
-                statement = statement.where(
-                    or_(
-                        *category_conditions
-                    )
-                )
+                statement = statement.where(or_(*category_conditions))
 
         # =====================================
         # MINIMUM SALARY

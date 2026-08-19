@@ -62,15 +62,18 @@ def create_test_job(
     )
 
 
-session = SessionLocal()
+if __name__ == "__main__":
+    session = SessionLocal()
+    try:
+        from app.database.job_model import JobModel
+        session.query(JobModel).filter(JobModel.source == "repository-test").delete()
+        session.commit()
 
-try:
+        repository = JobRepository(session)
 
-    repository = JobRepository(session)
-
-    print(
-        "========== REPOSITORY TEST =========="
-    )
+        print(
+            "========== REPOSITORY TEST =========="
+        )
 
     # ---------------------------------
     # CREATE

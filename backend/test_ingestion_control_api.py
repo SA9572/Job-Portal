@@ -5,9 +5,10 @@ from app.database.config import SessionLocal
 from app.database.ingestion_run_model import IngestionRunModel
 
 
-print("========== INGESTION CONTROL API TEST ==========")
+if __name__ == "__main__":
+    print("========== INGESTION CONTROL API TEST ==========")
 
-client = TestClient(app)
+    client = TestClient(app)
 
 # =========================================
 # TEST 1: INVALID BOUNDS PARAMETERS (400)

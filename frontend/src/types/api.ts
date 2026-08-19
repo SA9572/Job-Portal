@@ -199,3 +199,38 @@ export interface IngestionRunResponse {
   jobs_changed: number;
   errors_count: number;
 }
+
+// =============================================
+// SUBSCRIPTION TYPES
+// =============================================
+
+export interface SubscriptionPlan {
+  id: string;
+  name: string;
+  price_monthly: number;
+  price_yearly: number;
+  description: string;
+  popular: boolean;
+  badge: string | null;
+  features: string[];
+}
+
+export interface SubscriptionPlansResponse {
+  plans: SubscriptionPlan[];
+  currency: string;
+}
+
+export interface CheckoutRequest {
+  plan_id: string;
+  billing_cycle: 'monthly' | 'yearly';
+}
+
+export interface CheckoutResponse {
+  success: boolean;
+  message: string;
+  plan_id: string;
+  billing_cycle: string;
+  transaction_id: string;
+  status: string;
+}
+

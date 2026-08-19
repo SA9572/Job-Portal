@@ -5,9 +5,10 @@ from app.api.main import app
 from app.ingestion.scheduler import IngestionScheduler
 
 
-print("========== BACKGROUND INGESTION TEST ==========")
+if __name__ == "__main__":
+    print("========== BACKGROUND INGESTION TEST ==========")
 
-client = TestClient(app)
+    client = TestClient(app)
 
 # =========================================
 # TEST 1: POST /api/ingestion/run-async (202)

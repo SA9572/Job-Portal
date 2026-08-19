@@ -61,7 +61,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
   };
 
   return (
-    <aside className="glass-panel p-6 space-y-6 shrink-0 w-full lg:w-80">
+    <aside className="glass-panel p-5 space-y-5 shrink-0 w-full lg:w-72 border-white/[.07]">
       {/* Sidebar Header */}
       <div className="flex items-center justify-between pb-4 border-b border-white/10">
         <h3 className="font-bold text-white flex items-center gap-2">
@@ -88,7 +88,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder='e.g. "Senior Python"'
-            className="w-full bg-slate-900/90 border border-white/10 rounded-xl pl-10 pr-4 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition-colors"
+            className="w-full bg-[#07111d] border border-white/10 rounded-lg pl-10 pr-4 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 transition-colors"
           />
         </div>
 

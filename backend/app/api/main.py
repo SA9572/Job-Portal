@@ -14,6 +14,7 @@ from app.api.routes.auth import router as auth_router
 from app.api.routes.saved_jobs import router as saved_jobs_router
 from app.api.routes.job_alerts import router as job_alerts_router
 from app.api.routes.matching import router as matching_router
+from app.api.routes.subscription import router as subscription_router
 from app.core.logging_config import logger
 
 
@@ -145,4 +146,10 @@ app.include_router(
     ingestion_router,
     prefix="/api/ingestion",
     tags=["Ingestion"],
+)
+
+app.include_router(
+    subscription_router,
+    prefix="/api/subscription",
+    tags=["Subscription"],
 )

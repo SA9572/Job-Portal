@@ -56,13 +56,15 @@ def create_test_job():
     )
 
 
-session = SessionLocal()
+if __name__ == "__main__":
+    session = SessionLocal()
+    try:
+        session.query(JobModel).filter(JobModel.external_id == "test-job-001").delete()
+        session.commit()
 
-try:
-
-    print(
-        "========== INSERT TEST =========="
-    )
+        print(
+            "========== INSERT TEST =========="
+        )
 
     job = create_test_job()
 

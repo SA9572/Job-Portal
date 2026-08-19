@@ -15,6 +15,9 @@ import {
   MatchedJobListResponse,
   SingleJobMatchResponse,
   IngestionRunResponse,
+  SubscriptionPlansResponse,
+  CheckoutRequest,
+  CheckoutResponse,
 } from '../types/api';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8005/api';
@@ -23,6 +26,9 @@ export const apiClient = axios.create({
   baseURL: API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
+  },
+  paramsSerializer: {
+    indexes: null, // serializes { location: ['France'] } as location=France instead of location[]=France
   },
 });
 
@@ -284,3 +290,19 @@ export const adminApi = {
     return res.data;
   },
 };
+
+// =============================================
+// SUBSCRIPTION API
+// =============================================
+export const subscriptionApi = {
+  getPlans: async (): Promise<SubscriptionPlansResponse> => {
+    const res = await apiClient.get<SubscriptionPlansResponse>('/subscription/plans');
+    return res.data;
+  },
+
+  checkout: async (data: CheckoutRequest): Promise<CheckoutResponse> => {
+    const res = await apiClient.post<CheckoutResponse>('/subscription/checkout', data);
+    return res.data;
+  },
+};
+
